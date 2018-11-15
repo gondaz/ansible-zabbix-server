@@ -57,3 +57,10 @@
     enabled: yes
   tags:
     - zabbix-server
+    
+- name: "Zabbix-server enabled"
+  command: systemctl enable zabbix-server
+  register: zabbixserver_enabled
+  changed_when: 
+    - zabbixserver_enabled.rc != 0
+  
